@@ -22,5 +22,4 @@ brew "zoxide"
 brew "zsh"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-npm "@antfu/ni"
-npm "corepack"
+cask "font-fira-code-nerd-font"

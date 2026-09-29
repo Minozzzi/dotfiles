@@ -109,3 +109,8 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 # --- Isolamento para variáveis exclusivas do Mac da empresa ---
 [[ -f ~/.zshrc.work ]] && source ~/.zshrc.work
+
+if [[ -f "$HOME/.atuin/bin/env" ]]; then
+  . "$HOME/.atuin/bin/env"
+  command -v atuin >/dev/null 2>&1 && eval "$(atuin init zsh)"
+fi
