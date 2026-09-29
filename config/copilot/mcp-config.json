@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "clickup": {
+      "tools": [
+        "*"
+      ],
+      "type": "http",
+      "url": "https://mcp.clickup.com/mcp",
+      "headers": {},
+      "source": "user",
+      "sourcePath": "/Users/guilhermeminozzi/.copilot/mcp-config.json"
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp",
+      "headers": {},
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}

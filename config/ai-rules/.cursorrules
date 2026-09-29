@@ -1,0 +1,20 @@
+# Global Cursor Rules
+
+## RTK - Rust Token Killer
+Use rtk proxy for CLI dev operations to save tokens.
+- Git and shell commands run through rtk proxy where supported.
+
+## Git & PR Flow (Aarin / Consórcio)
+- For MRs and branch creation, follow conventional commit format (e.g. feat:, fix:, chore:).
+- Branches follow English naming with ticket/issue ID (e.g. feat/CLICKUP-123-description).
+- PRs/MRs target DEV environment first.
+
+## Graphify Knowledge Graph
+- If graphify-out/graph.json exists:
+  - Query codebase: graphify query "<question>"
+  - Concept explanation: graphify explain "<concept>"
+  - After modifying code, run graphify update . to keep graph current.
+
+## Code Quality & Architecture
+- Prefer explicit typing, modular decomposition, and single responsibility.
+- Write tests alongside implementations.

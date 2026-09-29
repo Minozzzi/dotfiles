@@ -1,0 +1,146 @@
+setupVersion: 1
+retry: 
+  fallbackChains: 
+    maestro: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-sol
+    planner: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-terra
+    architect: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-sol
+    coder: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-sol
+    hotfixer: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-terra
+    tester: 
+      - google-antigravity/claude-opus-4-6
+      - openai-codex/gpt-5.6-terra
+    release: 
+      - openai-codex/gpt-5.6-luna
+    journey: 
+      - google-antigravity/claude-opus-4-6
+      - openai-codex/gpt-5.6-terra
+    taskcreator: 
+      - openai-codex/gpt-5.6-luna
+    spec: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-terra
+    smol: 
+      - google-antigravity/gemini-3.1-flash-lite
+      - openai-codex/gpt-5.6-luna
+    tiny: 
+      - google-antigravity/gemini-3.1-flash-lite
+      - openai-codex/gpt-5.6-luna
+    commit: 
+      - openai-codex/gpt-5.6-luna
+    vision: 
+      - google-antigravity/claude-opus-4-6
+      - openai-codex/gpt-5.6-sol
+    designer: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-terra
+    slow: 
+      - openai-codex/gpt-5.6-sol
+    plan: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-terra
+    default: 
+      - openai-codex/gpt-5.6-terra
+    task: 
+      - openai-codex/gpt-5.6-terra
+    advisor: 
+      - google-antigravity/gemini-3.1-pro
+      - openai-codex/gpt-5.6-sol
+modelRoles: 
+  planner: google-antigravity/claude-opus-4-6
+  architect: google-antigravity/claude-opus-4-6
+  coder: google-antigravity/claude-opus-4-6
+  hotfixer: google-antigravity/gemini-3.1-pro
+  tester: google-antigravity/gemini-3.1-pro
+  release: google-antigravity/gemini-3.6-flash
+  journey: google-antigravity/gemini-3.1-pro
+  taskcreator: google-antigravity/gemini-3.6-flash
+  spec: google-antigravity/claude-opus-4-6
+  smol: google-antigravity/gemini-3.6-flash
+  tiny: google-antigravity/gemini-3.6-flash
+  commit: google-antigravity/gemini-3.6-flash
+  vision: google-antigravity/gemini-3.1-pro
+  designer: google-antigravity/claude-opus-4-6
+  slow: google-antigravity/claude-opus-4-6
+  plan: google-antigravity/claude-opus-4-6
+  task: google-antigravity/gemini-3.1-pro
+  advisor: google-antigravity/claude-opus-4-6
+  maestro: google-antigravity/claude-opus-4-6
+  default: google-antigravity/gemini-3.1-pro:high
+theme: 
+  dark: titanium
+symbolPreset: unicode
+colorBlindMode: true
+statusLine: 
+  preset: nerd
+  separator: powerline-thin
+  sessionAccent: true
+  transparent: false
+  compactThinkingLevel: false
+  showHookStatus: true
+terminal: 
+  showProgress: false
+tui: 
+  textSizing: false
+  codexResetFireworks: false
+display: 
+  showTokenUsage: true
+  cacheMissMarker: true
+browser: 
+  headless: true
+  relay: false
+defaultThinkingLevel: auto
+cycleOrder: 
+  - smol
+  - slow
+providers: 
+  autoThinkingModel: online
+includeWorkspaceTree: false
+personality: pragmatic
+advisor: 
+  enabled: false
+  syncBacklog: "1"
+prewalk: 
+  enabled: false
+steeringMode: all
+followUpMode: all
+interruptMode: immediate
+power: 
+  sleepPrevention: idle
+memory: 
+  backend: local
+autolearn: 
+  enabled: true
+  autoContinue: true
+readLineNumbers: true
+bash: 
+  autoBackground: 
+    enabled: false
+astGrep: 
+  enabled: true
+speechgen: 
+  enabled: true
+generate_image: 
+  enabled: true
+checkpoint: 
+  enabled: true
+vault: 
+  enabled: true
+web_search: 
+  enabled: true
+security: 
+  enabled: true
+dev: 
+  autoqaConsent: granted
+task: 
+  agentAdvisor: 
+    task: "on"

@@ -1,0 +1,69 @@
+{
+  "plugins": {
+    "chrome-devtools-plugin": {
+      "enabled": true
+    },
+    "firebase": {
+      "enabled": true
+    },
+    "gemini-api": {
+      "enabled": true
+    },
+    "google-antigravity-sdk": {
+      "enabled": true
+    },
+    "modern-web-guidance-plugin": {
+      "enabled": true
+    }
+  },
+  "userSettings": {
+    "browserJsExecutionPolicy": "BROWSER_JS_EXECUTION_POLICY_TURBO",
+    "conversationWidth": "CONVERSATION_WIDTH_DEFAULT",
+    "customThemeSeedsDark": {
+      "background": "#24273A",
+      "foregroundOverride": "#CAD3F5",
+      "primary": "#C6A0F6"
+    },
+    "customThemeSeedsLight": {
+      "background": "#EAECF0",
+      "foregroundOverride": "#4C4F69",
+      "primary": "#8839EF"
+    },
+    "globalPermissionGrants": {
+      "allow": [
+        "read_url(imowiz-portal-dev.imowiz.com.br)",
+        "read_url(server-dev.imowiz.com.br)",
+        "read_url(imowiz.imowiz.com.br)",
+        "read_url(imowiz-dev.imowiz.com.br)",
+        "read_url(coolify.imowiz.com.br)",
+        "command(git checkout)",
+        "command(git add)",
+        "command(git commit)",
+        "command(gh)",
+        "command(git push --no-verify origin fix/mobile-filter-and-lead-form-error)",
+        "mcp(github/create_pull_request)",
+        "command(git reset --hard origin/main)",
+        "command(git push --force --no-verify origin fix/mobile-filter-and-lead-form-error)",
+        "command(pnpm --filter web dev)",
+        "command(curl -s http://localhost:3000/properties/b5017e30-25ea-422e-984f-375e6c9acba9)",
+        "command(grep)",
+        "command(curl -I http://localhost:3000/properties/b5017e30-25ea-422e-984f-375e6c9acba9)",
+        "command(curl -s -k http://localhost:3000/properties/b5017e30-25ea-422e-984f-375e6c9acba9)",
+        "command(head)",
+        "command(git push -f origin fix/mobile-filter-and-lead-form-error)",
+        "command(pnpm format:fix)",
+        "command(git push -f --no-verify origin fix/mobile-filter-and-lead-form-error)",
+        "mcp(github/list_pull_requests)",
+        "command(dotnet)",
+        "command(git push -u origin feat/optional-lead-email)"
+      ]
+    },
+    "permissionGrantsV2Migrated": true,
+    "queuedMessageDeliveryStrategy": "MESSAGE_DELIVERY_STRATEGY_NEXT_INVOCATION",
+    "remoteControlEnabled": true,
+    "remoteControlHostname": "h000169-local-bright-orbit",
+    "sandboxEnabledAtV2Migration": true,
+    "themeMode": "THEME_MODE_INHERIT",
+    "useAiCredits": true
+  }
+}

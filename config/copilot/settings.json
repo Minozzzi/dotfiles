@@ -1,0 +1,32 @@
+{
+  "model": "auto",
+  "experimental": true,
+  "footer": {
+    "showModelEffort": true,
+    "showDirectory": true,
+    "showBranch": true,
+    "showContextWindow": true,
+    "showQuota": true,
+    "showAiUsed": true,
+    "showAgent": true,
+    "showCodeChanges": true,
+    "showUsername": true,
+    "showSandbox": true,
+    "showYolo": true,
+    "showCustom": true
+  },
+  "showReasoning": true,
+  "allowedUrls": [
+    "https://github.com",
+    "https://nextjs.org",
+    "http://localhost:3099",
+    "https://gitlab.com",
+    "https://devcenter.unico.io",
+    "https://raw.githubusercontent.com",
+    "https://api.github.com",
+    "https://unpkg.com",
+    "https://consorcio-docs-beb8ea.gitlab.io",
+    "https://www.figma.com",
+    "https://app.clickup.com"
+  ]
+}

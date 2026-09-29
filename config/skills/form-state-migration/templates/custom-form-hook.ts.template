@@ -1,0 +1,23 @@
+import { useState } from 'react';
+import { useFormState } from '@imowiz/utils/hooks/use-form-state';
+
+interface UseFormOptions {
+  open: boolean;
+  initialData?: any;
+  onSuccess?: () => void;
+  onError?: (message: string) => void;
+}
+
+export function useDomainForm({ open, initialData, onSuccess, onError }: UseFormOptions) {
+  const [state, dispatch, isPending] = useFormState(formAction, {
+    success: false,
+    errors: {},
+  });
+
+  return {
+    state,
+    dispatch,
+    isPending,
+    errors: state.errors,
+  };
+}

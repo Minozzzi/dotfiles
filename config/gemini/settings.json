@@ -1,0 +1,67 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    },
+    "enablePermanentToolApproval": true
+  },
+  "ui": {
+    "theme": "Default",
+    "inlineThinkingMode": "full",
+    "showStatusInTitle": true,
+    "hideTips": false,
+    "footer": {
+      "hideContextPercentage": false,
+      "items": [
+        "model-name",
+        "context-used",
+        "quota",
+        "code-changes",
+        "token-count"
+      ],
+      "showLabels": true
+    },
+    "showMemoryUsage": true,
+    "showCitations": true,
+    "showModelInfoInChat": true
+  },
+  "general": {
+    "vimMode": false,
+    "debugKeystrokeLogging": true,
+    "enablePromptCompletion": true,
+    "enableAutoUpdate": true,
+    "defaultApprovalMode": "auto_edit",
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "30d"
+    },
+    "plan": {
+      "enabled": true
+    }
+  },
+  "hasSeenIdeIntegrationNudge": true,
+  "ide": {
+    "enabled": true
+  },
+  "experimental": {
+    "directWebFetch": true,
+    "modelSteering": true,
+    "worktrees": true
+  },
+  "model": {
+    "name": "auto-gemini-3"
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    }
+  },
+  "context": {
+    "fileFiltering": {
+      "respectGitIgnore": true
+    }
+  },
+  "agents": {
+    "overrides": {}
+  }
+}
