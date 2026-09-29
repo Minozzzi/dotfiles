@@ -123,24 +123,6 @@ Hooks rewrite transparently: `git status` → `rtk git status`.
 
 ---
 
-## Aarin/Consórcio MR Flow
-
-**Location:** `~/.config/opencode/instructions/aarin-mr-flow.md`
-
-Create branches and MRs across DEV/SDX/PRD envs using GitLab MCP. Detailed workflow in separate instruction file.
-
----
-
-## Maverick Task Creator (ClickUp)
-
-**Location:** `~/.config/opencode/instructions/clickup-tasks.md`
-
-Create ClickUp tasks on Maverick dev board with standard template (Objetivo, Background, Requisitos, etc).
-
----
-
----
-
 ## Figma — Design integration (9 skills)
 
 **Location:** `~/.gemini/extensions/Figma/skills/<name>/SKILL.md`

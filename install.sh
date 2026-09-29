@@ -68,7 +68,7 @@ mkdir -p "$HOME/.agents"
 mkdir -p "$HOME/.copilot"
 mkdir -p "$HOME/.config/opencode"
 
-# 6.1 Unificando e linkando Skills (102 skills compartilhadas entre todos os harnesses)
+# 6.1 Unificando e linkando Skills compartilhadas entre todos os harnesses
 for skill_target in \
   "$HOME/.agents/skills" \
   "$HOME/.gemini/config/skills" \

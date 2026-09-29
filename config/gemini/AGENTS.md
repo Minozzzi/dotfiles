@@ -1,4 +1,6 @@
+# Agent Guidelines
 
-
-## Fluxo de Merge Requests (Aarin/Consórcio)
-Para tarefas de MR, branch creation e fluxo de PRs da Aarin/Consórcio, consulte sempre as regras e automações detalhadas na skill **aarin-mr-flow**.
+## General Practices
+- Maintain clean, idiomatic code adhering to project conventions.
+- Follow conventional commits (`feat:`, `fix:`, `refactor:`, `chore:`).
+- Verify changes with tests and linting before completing tasks.

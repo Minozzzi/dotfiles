@@ -4,10 +4,10 @@
 Use rtk proxy for CLI dev operations to save tokens.
 - Git and shell commands run through rtk proxy where supported.
 
-## Git & PR Flow (Aarin / Consórcio)
-- For MRs and branch creation, follow conventional commit format (e.g. feat:, fix:, chore:).
-- Branches follow English naming with ticket/issue ID (e.g. feat/CLICKUP-123-description).
-- PRs/MRs target DEV environment first.
+## Git & PR Flow
+- For PRs and branch creation, follow conventional commit format (e.g. feat:, fix:, chore:).
+- Branches follow English naming with ticket/issue ID (e.g. feat/123-description).
+- PRs/MRs target development branch first.
 
 ## Graphify Knowledge Graph
 - If graphify-out/graph.json exists:
