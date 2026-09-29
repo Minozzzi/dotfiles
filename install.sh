@@ -106,17 +106,19 @@ ln -sfn "$DOTFILES_DIR/config/gemini/AGENTS.md" "$HOME/.gemini/config/AGENTS.md"
 ln -sfn "$DOTFILES_DIR/config/gemini/GEMINI.md" "$HOME/GEMINI.md"
 ln -sfn "$DOTFILES_DIR/config/gemini/plugins" "$HOME/.gemini/config/plugins"
 
-# 6.5 OpenCode
-if [[ -d "$HOME/.config/opencode/commands" && ! -L "$HOME/.config/opencode/commands" ]]; then
-  mv "$HOME/.config/opencode/commands" "$HOME/.config/opencode/commands.backup.$(date +%Y%m%d%H%M%S)"
+# 6.5 OpenCode (opcional)
+if [[ -d "$DOTFILES_DIR/config/opencode" ]]; then
+  if [[ -d "$HOME/.config/opencode/commands" && ! -L "$HOME/.config/opencode/commands" ]]; then
+    mv "$HOME/.config/opencode/commands" "$HOME/.config/opencode/commands.backup.$(date +%Y%m%d%H%M%S)"
+  fi
+  if [[ -d "$HOME/.config/opencode/plugins" && ! -L "$HOME/.config/opencode/plugins" ]]; then
+    mv "$HOME/.config/opencode/plugins" "$HOME/.config/opencode/plugins.backup.$(date +%Y%m%d%H%M%S)"
+  fi
+  ln -sfn "$DOTFILES_DIR/config/opencode/opencode.jsonc" "$HOME/.config/opencode/opencode.jsonc"
+  ln -sfn "$DOTFILES_DIR/config/opencode/commands" "$HOME/.config/opencode/commands"
+  ln -sfn "$DOTFILES_DIR/config/opencode/plugins" "$HOME/.config/opencode/plugins"
+  ln -sfn "$DOTFILES_DIR/config/opencode/package.json" "$HOME/.config/opencode/package.json"
 fi
-if [[ -d "$HOME/.config/opencode/plugins" && ! -L "$HOME/.config/opencode/plugins" ]]; then
-  mv "$HOME/.config/opencode/plugins" "$HOME/.config/opencode/plugins.backup.$(date +%Y%m%d%H%M%S)"
-fi
-ln -sfn "$DOTFILES_DIR/config/opencode/opencode.jsonc" "$HOME/.config/opencode/opencode.jsonc"
-ln -sfn "$DOTFILES_DIR/config/opencode/commands" "$HOME/.config/opencode/commands"
-ln -sfn "$DOTFILES_DIR/config/opencode/plugins" "$HOME/.config/opencode/plugins"
-ln -sfn "$DOTFILES_DIR/config/opencode/package.json" "$HOME/.config/opencode/package.json"
 
 # 6.6 Copilot CLI
 ln -sfn "$DOTFILES_DIR/config/copilot/settings.json" "$HOME/.copilot/settings.json"

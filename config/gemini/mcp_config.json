@@ -2,110 +2,34 @@
   "mcpServers": {
     "github": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }
     },
-    "gitlab": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-gitlab"
-      ],
-      "env": {
-        "GITLAB_PERSONAL_ACCESS_TOKEN": "${GITLAB_PERSONAL_ACCESS_TOKEN}",
-        "GITLAB_TOKEN": "${GITLAB_TOKEN}",
-        "GITLAB_API_URL": "https://gitlab.com"
-      }
-    },
-    "gitlab-remote": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://gitlab.com/api/v4/mcp"
-      ],
-      "env": {
-        "GITLAB_TOKEN": "${GITLAB_TOKEN}",
-        "GITLAB_PERSONAL_ACCESS_TOKEN": "${GITLAB_PERSONAL_ACCESS_TOKEN}"
-      }
-    },
-    "clickup": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "clickup-mcp"
-      ],
-      "env": {
-        "CLICKUP_API_TOKEN": "${CLICKUP_API_TOKEN}",
-        "CLICKUP_API_KEY": "${CLICKUP_API_KEY}",
-        "CLICKUP_TOKEN": "${CLICKUP_TOKEN}"
-      }
-    },
     "figma": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@figma/mcp"
-      ],
+      "args": ["-y", "@figma/mcp"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}",
         "FIGMA_PERSONAL_ACCESS_TOKEN": "${FIGMA_PERSONAL_ACCESS_TOKEN}"
       }
     },
-    "figma-legacy": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "figma-mcp"
-      ],
-      "env": {
-        "FIGMA_PERSONAL_ACCESS_TOKEN": "${FIGMA_PERSONAL_ACCESS_TOKEN}"
-      }
-    },
-    "figma-desktop": {
-      "serverUrl": "http://127.0.0.1:3845/mcp",
-      "url": "http://127.0.0.1:3845/mcp"
-    },
     "chrome-devtools": {
       "command": "npx",
-      "args": [
-        "-y",
-        "chrome-devtools-mcp@latest"
-      ]
+      "args": ["-y", "chrome-devtools-mcp@latest"]
     },
     "chrome-devtools-anthropic": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@anthropic/chrome-devtools-mcp"
-      ]
-    },
-    "datadog": {
-      "serverUrl": "https://mcp.datadoghq.com/v1/mcp",
-      "url": "https://mcp.datadoghq.com/v1/mcp",
-      "env": {
-        "DD_API_KEY": "${DD_API_KEY}",
-        "DD_APP_KEY": "${DD_APP_KEY}"
-      }
+      "args": ["-y", "@anthropic/chrome-devtools-mcp"]
     },
     "memory": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-memory"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
     },
     "postman": {
       "command": "npx",
-      "args": [
-        "-y",
-        "postman-mcp-server"
-      ],
+      "args": ["-y", "postman-mcp-server"],
       "env": {
         "POSTMAN_API_KEY": "${POSTMAN_API_KEY}",
         "NODE_TLS_REJECT_UNAUTHORIZED": "0"
@@ -113,10 +37,7 @@
     },
     "brave": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-brave-search"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
       "env": {
         "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }

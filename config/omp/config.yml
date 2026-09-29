@@ -76,9 +76,12 @@ modelRoles:
   advisor: google-antigravity/claude-opus-4-6
   maestro: google-antigravity/claude-opus-4-6
   default: google-antigravity/gemini-3.1-pro:high
+composer:
+  shape: band
 theme: 
   dark: titanium
-symbolPreset: unicode
+  light: light
+symbolPreset: nerd
 colorBlindMode: true
 statusLine: 
   preset: nerd
