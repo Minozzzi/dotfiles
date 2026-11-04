@@ -114,3 +114,6 @@ if [[ -f "$HOME/.atuin/bin/env" ]]; then
   . "$HOME/.atuin/bin/env"
   command -v atuin >/dev/null 2>&1 && eval "$(atuin init zsh)"
 fi
+
+# PR reviews in OMP with saved prompts (omp-review, omp-review-final).
+source "${${(%):-%x}:A:h}/config/zsh/pr-review.zsh"

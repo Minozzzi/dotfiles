@@ -94,6 +94,10 @@ ln -sfn "$DOTFILES_DIR/config/omp/mcp.json" "$HOME/.omp/agent/mcp.json"
 
 # 6.3 Claude Code
 ln -sfn "$DOTFILES_DIR/config/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+if [[ -d "$HOME/.claude/commands" && ! -L "$HOME/.claude/commands" ]]; then
+  mv "$HOME/.claude/commands" "$HOME/.claude/commands.backup.$(date +%Y%m%d%H%M%S)"
+fi
+ln -sfn "$DOTFILES_DIR/config/claude/commands" "$HOME/.claude/commands"
 
 # 6.4 Antigravity / Gemini
 if [[ -d "$HOME/.gemini/config/plugins" && ! -L "$HOME/.gemini/config/plugins" ]]; then
