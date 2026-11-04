@@ -657,4 +657,8 @@
   "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
   "workbench.browser.enableChatTools": true,
   "gitlens.views.commits.files.layout": "tree",
+  "cursor.cpp.disabledLanguages": [
+    "markdown",
+    "scminput"
+  ],
 }

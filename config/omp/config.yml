@@ -1,149 +1,165 @@
-setupVersion: 1
-retry: 
-  fallbackChains: 
-    maestro: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-sol
-    planner: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-terra
-    architect: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-sol
-    coder: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-sol
-    hotfixer: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-terra
-    tester: 
-      - google-antigravity/claude-opus-4-6
-      - openai-codex/gpt-5.6-terra
-    release: 
-      - openai-codex/gpt-5.6-luna
-    journey: 
-      - google-antigravity/claude-opus-4-6
-      - openai-codex/gpt-5.6-terra
-    taskcreator: 
-      - openai-codex/gpt-5.6-luna
-    spec: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-terra
-    smol: 
-      - google-antigravity/gemini-3.1-flash-lite
-      - openai-codex/gpt-5.6-luna
-    tiny: 
-      - google-antigravity/gemini-3.1-flash-lite
-      - openai-codex/gpt-5.6-luna
-    commit: 
-      - openai-codex/gpt-5.6-luna
-    vision: 
-      - google-antigravity/claude-opus-4-6
-      - openai-codex/gpt-5.6-sol
-    designer: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-terra
-    slow: 
-      - openai-codex/gpt-5.6-sol
-    plan: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-terra
-    default: 
-      - openai-codex/gpt-5.6-terra
-    task: 
-      - openai-codex/gpt-5.6-terra
-    advisor: 
-      - google-antigravity/gemini-3.1-pro
-      - openai-codex/gpt-5.6-sol
-modelRoles: 
-  planner: google-antigravity/claude-opus-4-6
-  architect: google-antigravity/claude-opus-4-6
-  coder: google-antigravity/claude-opus-4-6
-  hotfixer: google-antigravity/gemini-3.1-pro
-  tester: google-antigravity/gemini-3.1-pro
-  release: google-antigravity/gemini-3.6-flash
-  journey: google-antigravity/gemini-3.1-pro
-  taskcreator: google-antigravity/gemini-3.6-flash
-  spec: google-antigravity/claude-opus-4-6
-  smol: google-antigravity/gemini-3.6-flash
-  tiny: google-antigravity/gemini-3.6-flash
-  commit: google-antigravity/gemini-3.6-flash
-  vision: google-antigravity/gemini-3.1-pro
-  designer: google-antigravity/claude-opus-4-6
-  slow: google-antigravity/claude-opus-4-6
-  plan: google-antigravity/claude-opus-4-6
-  task: google-antigravity/gemini-3.1-pro
-  advisor: google-antigravity/claude-opus-4-6
-  maestro: google-antigravity/claude-opus-4-6
-  default: google-antigravity/gemini-3.1-pro:high
+setupVersion: 2
+retry:
+  fallbackChains:
+    maestro:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    productowner:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    planner:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    architect:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+    coder:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+    hotfixer:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+    tester:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    release:
+      - anthropic/claude-haiku-5-5
+    journey:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    taskcreator:
+      - anthropic/claude-haiku-5-5
+    spec:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+    smol:
+      - anthropic/claude-haiku-5-5
+    tiny:
+      - anthropic/claude-haiku-5-5
+    commit:
+      - anthropic/claude-haiku-5-5
+    vision:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+    designer:
+      - google-antigravity/gemini-4-argon
+      - google-antigravity/gemini-3.8-flash
+    slow:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+    plan:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    default:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    task:
+      - anthropic/claude-sonnet-5-5
+      - google-antigravity/gemini-3.8-flash
+    advisor:
+      - anthropic/claude-opus-5-5
+      - google-antigravity/gemini-3.8-flash
+  waitForUsageReset: true
+modelRoles:
+  planner: google-antigravity/gemini-4-argon
+  architect: google-antigravity/gemini-4-argon
+  coder: google-antigravity/gemini-4-argon
+  hotfixer: google-antigravity/gemini-4-argon
+  tester: google-antigravity/gemini-4-argon
+  release: google-antigravity/gemini-3.8-flash
+  journey: google-antigravity/gemini-4-argon
+  taskcreator: google-antigravity/gemini-3.8-flash
+  spec: google-antigravity/gemini-4-argon
+  smol: google-antigravity/gemini-3.8-flash
+  tiny: google-antigravity/gemini-3.8-flash
+  commit: google-antigravity/gemini-3.8-flash
+  vision: google-antigravity/gemini-4-argon
+  designer: anthropic/claude-sonnet-5-5
+  slow: google-antigravity/gemini-4-argon
+  plan: google-antigravity/gemini-4-argon
+  task: google-antigravity/gemini-4-argon
+  advisor: google-antigravity/gemini-4-argon
+  maestro: google-antigravity/gemini-4-argon
+  productowner: google-antigravity/gemini-4-argon
+  default: google-antigravity/gemini-3.8-flash
 composer:
   shape: band
-theme: 
+  tokenRate: true
+theme:
   dark: titanium
   light: light
 symbolPreset: nerd
 colorBlindMode: true
-statusLine: 
+statusLine:
   preset: nerd
   separator: powerline-thin
   sessionAccent: true
   transparent: false
   compactThinkingLevel: false
   showHookStatus: true
-terminal: 
+terminal:
   showProgress: false
-tui: 
+tui:
   textSizing: false
   codexResetFireworks: false
-display: 
+display:
   showTokenUsage: true
   cacheMissMarker: true
-browser: 
+browser:
   headless: true
   relay: false
 defaultThinkingLevel: auto
-cycleOrder: 
+cycleOrder:
   - smol
   - slow
-providers: 
-  autoThinkingModel: online
 includeWorkspaceTree: false
 personality: pragmatic
-advisor: 
+advisor:
   enabled: false
   syncBacklog: "1"
-prewalk: 
+prewalk:
   enabled: false
 steeringMode: all
 followUpMode: all
 interruptMode: immediate
-power: 
+power:
   sleepPrevention: idle
-memory: 
+memory:
   backend: local
-autolearn: 
+autolearn:
   enabled: true
   autoContinue: true
 readLineNumbers: true
-bash: 
-  autoBackground: 
+bash:
+  autoBackground:
     enabled: false
-astGrep: 
+astGrep:
   enabled: true
-speechgen: 
+speechgen:
   enabled: true
-generate_image: 
+generate_image:
   enabled: true
-checkpoint: 
+checkpoint:
   enabled: true
-vault: 
+vault:
   enabled: true
-web_search: 
+web_search:
   enabled: true
-security: 
+security:
   enabled: true
-dev: 
+dev:
   autoqaConsent: granted
-task: 
-  agentAdvisor: 
+task:
+  agentAdvisor:
     task: "on"
+codexResets:
+  autoRedeem: "no"
+features:
+  unexpectedStopDetection: smart
+computer:
+  enabled: true
+github:
+  enabled: true
+commands:
+  enableClaudeUser: true
+  enableOpencodeUser: true
