@@ -8,3 +8,8 @@ __pycache__/
 node_modules/
 .zshrc.work
 *.local
+
+# Generated state (Maestri app, skill sync, OMP lock)
+/A7F7DB71-9733-4FD2-B5DA-E81A41671A57/
+config/skills/synced/
+*.lock
