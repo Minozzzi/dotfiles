@@ -81,7 +81,7 @@ modelRoles:
   advisor: google-antigravity/gemini-4-argon
   maestro: google-antigravity/gemini-4-argon
   productowner: google-antigravity/gemini-4-argon
-  default: google-antigravity/gemini-3.8-flash
+  default: openai-codex/gpt-6-luna
 composer:
   shape: band
   tokenRate: true
