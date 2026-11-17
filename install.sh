@@ -99,6 +99,16 @@ if [[ -d "$HOME/.claude/commands" && ! -L "$HOME/.claude/commands" ]]; then
 fi
 ln -sfn "$DOTFILES_DIR/config/claude/commands" "$HOME/.claude/commands"
 
+# ~/.claude.json é estado de runtime do Claude (caches, conta, histórico por projeto):
+# não vira symlink. Os MCPs de usuário vêm de config/claude/mcp.json e são sincronizados aqui.
+if command -v claude >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
+  jq -r '.mcpServers | to_entries[] | [.key, (.value | tojson)] | @tsv' "$DOTFILES_DIR/config/claude/mcp.json" |
+    while IFS=$'\t' read -r name json; do
+      claude mcp remove --scope user "$name" >/dev/null 2>&1 || true
+      claude mcp add-json --scope user "$name" "$json" >/dev/null
+    done
+fi
+
 # 6.4 Antigravity / Gemini
 if [[ -d "$HOME/.gemini/config/plugins" && ! -L "$HOME/.gemini/config/plugins" ]]; then
   mv "$HOME/.gemini/config/plugins" "$HOME/.gemini/config/plugins.backup.$(date +%Y%m%d%H%M%S)"
