@@ -25,7 +25,8 @@ python3 <dir desta skill>/scripts/pr_state.py <PR> [--out DIR]
 ```
 
 (`<dir desta skill>` é a pasta deste `SKILL.md`, normalmente
-`~/.claude/skills/pr-review-final`.)
+`~/.claude/skills/pr-review-final`, linkada também em `~/.gemini/skills`,
+`~/.agents/skills` e `~/.omp/agent/skills`.)
 
 O script usa `gh api graphql` e imprime, com o completo em `DIR/state.json`:
 
@@ -68,8 +69,10 @@ as evidências antes de aceitar.
 ## 4. Commits novos desde o último review
 
 Revise o diff incremental como uma primeira rodada, com a skill `pr-review`: gere
-o diff do estado revisado até o head (`git diff <commit do review>..<head>`, ou
-`<primeiro commit novo>~1..<head>` se o review não tem commit), congele com
+o diff do estado revisado até o head (`git diff <commit do review>..<head>`,
+`<primeiro commit novo>~1..<head>` se o review não tem commit/foi reescrito, ou
+`gh api repos/<owner>/<repo>/compare/<base>...<head> -H "Accept: application/vnd.github.v3.diff"`
+se os commits não estiverem no repositório local), congele com
 
 ```bash
 python3 <dir da skill pr-review>/scripts/review_snapshot.py <PR> --diff-file <arquivo do diff> --out /tmp/pr-final-incremental

@@ -190,12 +190,19 @@ def main():
         md.append("- Commits novos desde então: **%d**" % len(since))
         for c in since:
             md.append("  - `%s` %s (%s)" % (short(c["oid"]), c["messageHeadline"], c["committedDate"]))
-        base = (anchor["commit"] or {}).get("oid")
+        anchor_oid = (anchor["commit"] or {}).get("oid")
+        base = anchor_oid if anchor_oid in oids else None
         if since:
-            # sem o commit do review (reescrito/force-push), compara a partir do pai do primeiro commit novo
-            base = base or since[0]["oid"] + "~1"
-            md.append("  - diff incremental: `git diff %s..%s` (ou `gh api repos/%s/%s/compare/%s...%s`)" % (
-                short(base) if "~" not in base else base, short(head), owner, repo, base, short(head)))
+            if not base:
+                # commit do review ausente ou reescrito (force-push): usa o commit anterior ao primeiro novo
+                first_idx = oids.index(since[0]["oid"])
+                base = oids[first_idx - 1] if first_idx > 0 else since[0]["oid"] + "~1"
+            if "~" in base:
+                md.append("  - diff incremental (commit do review reescrito): `git diff %s~1..%s`" % (
+                    short(since[0]["oid"]), short(head)))
+            else:
+                md.append("  - diff incremental: `git diff %s..%s` (ou `gh api repos/%s/%s/compare/%s...%s -H 'Accept: application/vnd.github.v3.diff'`)" % (
+                    short(base), short(head), owner, repo, base, head))
     else:
         md.append("- Nenhum review anterior: trate como primeira revisão (use `pr-review`).")
     md.append("")

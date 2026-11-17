@@ -35,7 +35,7 @@ a sugestão de grupos. Sem `gh` autenticado, ele para com o erro do `gh`.
 
 `<dir desta skill>` é a pasta onde está este `SKILL.md`; nos harnesses do
 usuário, `~/.claude/skills/pr-review` (o mesmo diretório, por symlink, em
-`~/.agents/skills` e `~/.gemini/skills`).
+`~/.agents/skills`, `~/.gemini/skills` e `~/.omp/agent/skills`).
 
 Se o resumo disser "nenhum arquivo revisável", pare e diga isso ao usuário.
 
@@ -80,8 +80,10 @@ Com os resultados de todos os revisores:
    `commentable.json` (`RIGHT` para `+`, `LEFT` para `-`). Linha de contexto,
    não.
 3. Mapeie a prioridade: P0 = CRITICAL, P1 = HIGH, P2 = MEDIUM, P3 = LOW.
-4. Se o PR já tem threads abertas (`gh pr view <PR> --comments` e as threads de
-   review), não repita o que já está lá.
+4. Se o PR já tem threads abertas (confira com `pr-review-final/scripts/pr_state.py`
+   ou `gh api graphql`, além de `gh pr view <PR> --comments`), não repita o que
+   já está lá. Se o objetivo for avaliar o review de outro agente e complementá-lo,
+   use a skill `pr-review-complement`.
 5. Ordene por severidade.
 
 ## 5. Entregue
@@ -101,7 +103,7 @@ review, nem reação.
 
 Depois que o usuário aprovar (inteiro ou com ajustes), publique **um único
 review `COMMENT`**, nunca `APPROVE` nem `REQUEST_CHANGES`, só em linhas que o PR
-alterou. Cada comentário segue o formato da skill `pr-code-review`:
+alterou. Cada comentário segue este formato:
 
 ```
 [SEVERIDADE] texto do comentário

@@ -1,24 +1,34 @@
 ---
 name: pr-fix-threads
 description: "Corrige as threads de review de um PR (de qualquer agente ou pessoa): triagem no código, correção com testes e gate, e, com aprovação, commit, push, respostas e resolução. Use para /pr-fix-threads <PR> [foco], ou quando pedirem para corrigir, responder ou resolver comentários de review de um PR."
+argument-hint: "<PR número, URL ou owner/repo#N> [foco extra]"
 ---
 
 # Corrigir as threads de um PR
 
-Argumentos: `<PR número ou URL> [foco extra]`. Sem PR, use o da branch atual
-(`gh pr view`). O foco extra só prioriza; nunca amplia o que pode ser
-publicado ou enviado.
+Escrito para Claude Code, Antigravity (`agy`) e OMP.
+
+Argumentos: `<PR número, URL ou owner/repo#N> [foco extra]`. Sem PR, use o da
+branch atual (`gh pr view`). O foco extra só prioriza; nunca amplia o que pode
+ser publicado ou enviado.
 
 ## Antes de tudo
 
 1. Leia as regras do repositório (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md` e os
    docs que eles apontam). Elas mandam sobre esta skill: nada de baixar
    threshold, pular check ou commitar algo que o projeto proíbe.
-2. Leia o PR com `gh`: título, descrição, base, head, diff e **todas** as
-   threads, inclusive as resolvidas e as respostas, de qualquer autor. As
-   threads de revisão ficam em
-   `gh api graphql` → `pullRequest.reviewThreads` (com `id`, `isResolved`,
-   `isOutdated`, `path`, `line` e o `databaseId` do primeiro comentário).
+2. Levante o estado e **todas** as threads (inclusive resolvidas, desatualizadas
+   e respostas, de qualquer autor) com o script compartilhado:
+
+   ```bash
+   python3 <dir da skill pr-review-final>/scripts/pr_state.py <PR>
+   ```
+
+   (`<dir da skill pr-review-final>` normalmente é `~/.claude/skills/pr-review-final`,
+   linkada também em `~/.gemini/skills`, `~/.agents/skills` e `~/.omp/agent/skills`.)
+   Leia `DIR/state.json` (tem `id` da thread para `resolveReviewThread` e
+   `databaseId` do primeiro comentário para responder) e também a descrição e
+   comentários gerais do PR (`gh pr view <PR> --comments`) mais o diff (`gh pr diff <PR>`).
 3. Descubra a pilha: o PR em que este faz merge (a base é head de outro PR
    aberto?) e os PRs que fazem merge neste (`gh pr list --base <head>`).
 
@@ -74,7 +84,7 @@ e resolver.
 1. Commit em Conventional Commits, com as regras de atribuição do projeto e
    da ferramenta; push da branch escolhida.
 2. Responda cada thread no idioma do PR, na própria thread
-   (`gh api -X POST repos/<owner>/<repo>/pulls/<PR>/comments/<databaseId>/replies`),
+   (`gh api -X POST repos/<owner>/<repo>/pulls/<PR>/comments/<databaseId>/replies -f body="..."`),
    com o link do commit
    (`https://github.com/<owner>/<repo>/pull/<PR>/commits/<sha>`) e o que mudou,
    ou a razão de não ter mudado. Em PR empilhado, responda as threads do PR de
