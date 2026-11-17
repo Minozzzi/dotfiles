@@ -94,10 +94,6 @@ ln -sfn "$DOTFILES_DIR/config/omp/mcp.json" "$HOME/.omp/agent/mcp.json"
 
 # 6.3 Claude Code
 ln -sfn "$DOTFILES_DIR/config/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-if [[ -d "$HOME/.claude/commands" && ! -L "$HOME/.claude/commands" ]]; then
-  mv "$HOME/.claude/commands" "$HOME/.claude/commands.backup.$(date +%Y%m%d%H%M%S)"
-fi
-ln -sfn "$DOTFILES_DIR/config/claude/commands" "$HOME/.claude/commands"
 
 # ~/.claude.json é estado de runtime do Claude (caches, conta, histórico por projeto):
 # não vira symlink. Os MCPs de usuário vêm de config/claude/mcp.json e são sincronizados aqui.

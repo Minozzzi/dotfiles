@@ -86,13 +86,16 @@ Requires MCP server `chrome-devtools` configured. Use for web debugging.
 
 ## Code Review
 
-**Location:** `~/.gemini/antigravity-cli/plugins/code-review/skills/<name>/SKILL.md`
+**Locations (synced):** `~/.claude/skills/<name>/SKILL.md` · `~/.gemini/skills/<name>/SKILL.md` · `~/.omp/agent/skills/<name>/SKILL.md`
 
 | Skill | Purpose |
 |-------|---------|
-| `code-review` | Review changes on current branch |
-| `code-review-commons` | Shared guidelines, persona, critical constraints |
-| `pr-code-review` | Review open pull request |
+| `pr-review` | First-round PR review (OMP `/review` harness: frozen diff, parallel rubric fan-out, commentable lines) |
+| `pr-review-complement` | Complementary PR review validating existing threads and adding missed findings without duplicates |
+| `pr-review-final` | Merge-readiness check: verifies every thread in head code, incremental commits, and head CI |
+| `pr-fix-threads` | Triage and fix PR review threads with tests, project gate, commit/push, reply and resolve |
+| `code-review` | Review changes on current local branch |
+| `code-review-commons` | Shared guidelines, persona, critical constraints for `code-review` |
 
 ---
 
