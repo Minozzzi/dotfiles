@@ -47,6 +47,9 @@
       "env": {
         "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
+    },
+    "envato": {
+      "serverUrl": "https://mcp.envato.com/mcp"
     }
   }
 }
