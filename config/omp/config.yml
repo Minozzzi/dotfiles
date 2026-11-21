@@ -1,4 +1,4 @@
-setupVersion: 2
+setupVersion: 3
 retry:
   fallbackChains:
     maestro:
@@ -81,7 +81,7 @@ modelRoles:
   advisor: google-antigravity/gemini-4-argon
   maestro: google-antigravity/gemini-4-argon
   productowner: google-antigravity/gemini-4-argon
-  default: openai-codex/gpt-6-luna
+  default: anthropic/claude-sonnet-5-5
 composer:
   shape: band
   tokenRate: true
@@ -153,7 +153,8 @@ task:
   agentAdvisor:
     task: "on"
 codexResets:
-  autoRedeem: "no"
+  autoRedeem5h: "no"
+  autoRedeemWeekly: "no"
 features:
   unexpectedStopDetection: smart
 computer:
@@ -163,3 +164,9 @@ github:
 commands:
   enableClaudeUser: true
   enableOpencodeUser: true
+claudeResets:
+  autoRedeem5h: "no"
+  autoRedeemWeekly: "no"
+  autoRedeem: "no"
+update:
+  auto: true

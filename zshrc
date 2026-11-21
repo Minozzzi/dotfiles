@@ -117,3 +117,4 @@ fi
 
 # PR reviews in OMP with saved prompts (omp-review, omp-review-final).
 source "${${(%):-%x}:A:h}/config/zsh/pr-review.zsh"
+alias agy="agy --dangerously-skip-permissions"
