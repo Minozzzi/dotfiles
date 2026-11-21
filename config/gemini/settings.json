@@ -68,5 +68,11 @@
     "linear": {
       "httpUrl": "https://mcp.linear.app/mcp"
     }
+  },
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "allow": [
+      "Bash(*)"
+    ]
   }
 }
