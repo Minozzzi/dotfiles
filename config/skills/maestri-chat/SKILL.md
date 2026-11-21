@@ -39,6 +39,8 @@ On local terminals, --file reads UTF-8 text or attaches an image
 with prose, put ![Description](/absolute/path/image.png) on its own line.
 To share files (PDF, zip, etc.), add --attach <path> (repeatable, local terminals only, final reply only).
 
+Math renders from TeX: inline `$…$` or `\(…\)`, display `$$…$$`, `\[…\]` or a ```math block. Escape a dollar sign that could read as math: `\$`.
+
 ## Long tasks
 
     maestri say --progress 'text'   # interim update; your turn continues

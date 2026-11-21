@@ -1,6 +1,6 @@
 ---
 name: pr-review
-description: "Primeira rodada de review de um PR: revisores em paralelo sobre o diff congelado, com arquitetura do projeto, clean code, funcionalidade, segurança, DRY e KISS, e um consolidado de threads (arquivo:linha, severidade, ponto) para abrir no PR. Aceita foco extra. Use para /pr-review <PR> [foco extra], ou quando pedirem para revisar, fazer o review ou a primeira rodada de um PR. Não publica nada sem aprovação."
+description: "Primeira rodada de review de um PR: revisores em paralelo sobre o diff congelado, com arquitetura do projeto, clean code, funcionalidade, segurança, DRY e KISS, e um consolidado de threads (arquivo:linha, severidade, ponto) para abrir no PR. Aceita foco extra. Use para /pr-review <PR> [foco extra], ou quando pedirem para revisar, fazer o review ou a primeira rodada de um PR. Publica direto, sem pedir confirmação (um review COMMENT)."
 argument-hint: "<PR número, URL ou owner/repo#N> [foco extra]"
 ---
 
@@ -13,7 +13,7 @@ e OMP.
 
 Argumentos: `<PR> [foco extra]`. O PR é número, URL ou `owner/repo#N`; sem PR,
 usa o da branch atual. Todo o resto do texto é **foco extra**: ele prioriza onde
-olhar e **nunca** amplia o que pode ser publicado ou enviado.
+olhar.
 
 ## 1. Regras do projeto
 
@@ -96,14 +96,18 @@ Responda ao usuário, em português, com:
   `arquivo:linha | SEVERIDADE | ponto em uma linha`;
 - o que você descartou ou não conseguiu verificar, se for relevante.
 
-**Não publique nada no PR antes de o usuário aprovar.** Nem comentário, nem
-review, nem reação.
+Publique direto, sem pedir confirmação (etapa 6). Se o usuário pedir só para
+ver (`dry run`, `só me mostre`), pare aqui e não publique nada.
 
-## 6. Publicar (só com aprovação)
+**Limites duros:** nunca `APPROVE` nem `REQUEST_CHANGES`, nunca merge nem
+auto-merge, nunca `--no-verify` nem force-push, nunca baixar threshold,
+cobertura ou baseline, nunca expor segredo, token ou `.env` em comentário, e nunca repetir
+uma thread que já está aberta (idempotência).
 
-Depois que o usuário aprovar (inteiro ou com ajustes), publique **um único
-review `COMMENT`**, nunca `APPROVE` nem `REQUEST_CHANGES`, só em linhas que o PR
-alterou. Cada comentário segue este formato:
+## 6. Publicar
+
+Publique **um único review `COMMENT`**, só em linhas que o PR alterou.
+Cada comentário segue este formato:
 
 ```
 [SEVERIDADE] texto do comentário

@@ -1,6 +1,6 @@
 ---
 name: pr-fix-threads
-description: "Corrige as threads de review de um PR (de qualquer agente ou pessoa): triagem no código, correção com testes e gate, e, com aprovação, commit, push, respostas e resolução. Use para /pr-fix-threads <PR> [foco], ou quando pedirem para corrigir, responder ou resolver comentários de review de um PR."
+description: "Corrige as threads de review de um PR (de qualquer agente ou pessoa): triagem no código, correção com testes e gate, e, sem pedir confirmação, commit, push, respostas e resolução. Use para /pr-fix-threads <PR> [foco], ou quando pedirem para corrigir, responder ou resolver comentários de review de um PR."
 argument-hint: "<PR número, URL ou owner/repo#N> [foco extra]"
 ---
 
@@ -9,8 +9,14 @@ argument-hint: "<PR número, URL ou owner/repo#N> [foco extra]"
 Escrito para Claude Code, Antigravity (`agy`) e OMP.
 
 Argumentos: `<PR número, URL ou owner/repo#N> [foco extra]`. Sem PR, use o da
-branch atual (`gh pr view`). O foco extra só prioriza; nunca amplia o que pode
-ser publicado ou enviado.
+branch atual (`gh pr view`). O foco extra só prioriza.
+
+**Limites duros:** nunca `--no-verify` nem force-push (só fast-forward), nunca
+baixar threshold, cobertura ou baseline, nunca expor segredo, token ou `.env` em
+commit, comentário ou resposta, nunca aprovar, pedir mudanças, mergear nem
+ativar auto-merge, nunca repetir resposta em thread que já tem a sua, e em PR
+empilhado a correção vai no branch do topo. Se o usuário pedir só para ver
+(`dry run`, `só me mostre`), faça a triagem e pare antes de commitar.
 
 ## Antes de tudo
 
@@ -66,9 +72,9 @@ Confirme que a árvore de trabalho está limpa antes de trocar de branch.
 4. Rode o gate canônico do projeto (por exemplo `pnpm validate`) e o caminho
    alterado de verdade. Falha não se esconde: conserte ou relate.
 
-## Antes de publicar
+## Publicar
 
-Traga ao usuário, sem ter commitado nada:
+Sem pedir confirmação, rode o gate, publique e traga ao usuário o relatório:
 
 - uma tabela por thread: link, decisão (corrigida / já corrigida /
   contestada) e o que mudou ou por quê não;
@@ -76,13 +82,10 @@ Traga ao usuário, sem ter commitado nada:
 - os comandos rodados com o resultado real, e o que ficou sem verificar
   (CI ainda não rodou, caminho não exercido).
 
-Peça **um único sim** para o pacote inteiro: commitar, fazer push, responder
-e resolver.
-
-## Com o sim
+## Passos da publicação
 
 1. Commit em Conventional Commits, com as regras de atribuição do projeto e
-   da ferramenta; push da branch escolhida.
+   da ferramenta; push (só fast-forward) da branch escolhida.
 2. Responda cada thread no idioma do PR, na própria thread
    (`gh api -X POST repos/<owner>/<repo>/pulls/<PR>/comments/<databaseId>/replies -f body="..."`),
    com o link do commit
