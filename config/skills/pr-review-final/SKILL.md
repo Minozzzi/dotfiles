@@ -1,6 +1,6 @@
 ---
 name: pr-review-final
-description: "Verificação final de merge-readiness de um PR depois que o autor aplicou as melhorias do review: confere no código do head se cada thread (inclusive as resolvidas) foi corrigida de fato, revisa os commits novos desde o último review, lê o CI do commit atual separando falhas já documentadas das novas e diz se pode mergear ou o que ainda bloqueia. Aceita foco extra. Use para /pr-review-final <PR> [foco extra], ou quando pedirem para refazer o review, ver se está 100% ou se pode mergear. Não publica nada sem aprovação."
+description: "Verificação final de merge-readiness de um PR depois que o autor aplicou as melhorias do review: confere no código do head se cada thread (inclusive as resolvidas) foi corrigida de fato, revisa os commits novos desde o último review, lê o CI do commit atual separando falhas já documentadas das novas e diz se pode mergear ou o que ainda bloqueia. Aceita foco extra. Use para /pr-review-final <PR> [foco extra], ou quando pedirem para refazer o review, ver se está 100% ou se pode mergear. Publica direto, sem pedir confirmação (um review COMMENT)."
 argument-hint: "<PR número, URL ou owner/repo#N> [foco extra]"
 ---
 
@@ -11,7 +11,7 @@ Rodada de fechamento, depois de `pr-review` e das correções do autor. A pergun
 e OMP.
 
 Argumentos: `<PR> [foco extra]`. Sem PR, usa o da branch atual. O foco extra só
-prioriza; nunca amplia o que pode ser publicado ou enviado.
+prioriza.
 
 ## 1. Regras do projeto
 
@@ -108,7 +108,12 @@ Responda em português:
   contestada / resolvida sem correção) e as falhas de CI separadas em
   documentadas e novas.
 
-**Não publique nada no PR antes de o usuário aprovar** e nunca faça merge: nem
-comentário, nem review, nem resolução de thread. Com aprovação, publique um único
-review `COMMENT` como descrito na skill `pr-review` (etapa 6), nunca `APPROVE` ou
-`REQUEST_CHANGES`.
+Publique direto, sem pedir confirmação: um único review `COMMENT` como descrito
+na skill `pr-review` (etapa 6), só em linhas alteradas pelo PR. Se o usuário
+pedir só para ver (`dry run`, `só me mostre`), não publique.
+
+**Limites duros:** nunca `APPROVE` nem `REQUEST_CHANGES`, nunca merge nem
+auto-merge, nunca resolver thread de outra pessoa, nunca `--no-verify` nem force-push, nunca baixar
+threshold, cobertura ou baseline, nunca expor segredo, token ou
+`.env` em comentário, e nunca repetir uma thread que já está aberta
+(idempotência).

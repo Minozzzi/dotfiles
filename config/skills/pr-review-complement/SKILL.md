@@ -1,6 +1,6 @@
 ---
 name: pr-review-complement
-description: "Segunda rodada / review complementar de um PR sobre o review já feito por outro agente ou pessoa: congela o diff e roda revisores em paralelo com a rubrica do OMP (arquitetura do projeto, clean code, clean arch, funcionalidade, segurança, DRY, KISS e design patterns), valida cada thread existente (inclusive resolvidas) diretamente no código do head e na pilha de PRs, e entrega a avaliação das threads + apenas os novos pontos sem duplicar o que já está aberto. Aceita foco extra. Use para /pr-review-complement <PR> [foco extra], /pr-complement, ou quando pedirem para complementar ou validar o review de outro agente. Não publica nada sem aprovação."
+description: "Segunda rodada / review complementar de um PR sobre o review já feito por outro agente ou pessoa: congela o diff e roda revisores em paralelo com a rubrica do OMP (arquitetura do projeto, clean code, clean arch, funcionalidade, segurança, DRY, KISS e design patterns), valida cada thread existente (inclusive resolvidas) diretamente no código do head e na pilha de PRs, e entrega a avaliação das threads + apenas os novos pontos sem duplicar o que já está aberto. Aceita foco extra. Use para /pr-review-complement <PR> [foco extra], /pr-complement, ou quando pedirem para complementar ou validar o review de outro agente. Publica direto, sem pedir confirmação (um review COMMENT)."
 argument-hint: "<PR número, URL ou owner/repo#N> [foco extra]"
 ---
 
@@ -12,8 +12,7 @@ fan-out paralelo) somado ao levantamento completo de threads do `pr_state.py`.
 Escrito para Claude Code, Antigravity (`agy`) e OMP.
 
 Argumentos: `<PR> [foco extra]`. O PR é número, URL ou `owner/repo#N`; sem PR,
-usa o da branch atual. O foco extra só prioriza onde olhar e **nunca** amplia o
-que pode ser publicado ou enviado.
+usa o da branch atual. O foco extra só prioriza onde olhar.
 
 ## 1. Regras do projeto
 
@@ -112,13 +111,17 @@ Responda ao usuário, em português, com:
   linha: `arquivo:linha | SEVERIDADE | ponto em uma linha`;
 - o que foi descartado ou não pôde ser verificado, se relevante.
 
-**Não publique nada no PR antes de o usuário aprovar.** Nem comentário, nem
-review, nem resposta em thread, nem reação.
+Publique direto, sem pedir confirmação (etapa 6). Se o usuário pedir só para
+ver (`dry run`, `só me mostre`), pare aqui e não publique nada.
 
-## 6. Publicar (só com aprovação)
+**Limites duros:** nunca `APPROVE` nem `REQUEST_CHANGES`, nunca merge nem
+auto-merge, nunca `--no-verify` nem force-push, nunca baixar threshold,
+cobertura ou baseline, nunca expor segredo, token ou `.env` em comentário, e nunca repetir
+uma thread que já está aberta (idempotência).
 
-Com aprovação do usuário (inteira ou com ajustes), publique **um único review
-`COMMENT`** (nunca `APPROVE` nem `REQUEST_CHANGES`) seguindo exatamente a etapa 6
+## 6. Publicar
+
+Publique **um único review `COMMENT`** seguindo exatamente a etapa 6
 da skill `pr-review`, só em linhas alteradas de `commentable.json` (com
 `[SEVERIDADE] ...`, bloco `suggestion` opcional, `## 📋 Review Summary` e
 `## 🔍 General Feedback`) via:
@@ -129,4 +132,4 @@ gh api repos/<owner>/<repo>/pulls/<N>/reviews --method POST --input /tmp/review.
 
 Se o `gh` recusar uma linha (422), corrija a âncora com `commentable.json` e
 reenvie; não troque por comentário solto. Só responda a threads existentes se o
-usuário pedir explicitamente.
+usuário pedir explicitamente (isso é papel do `pr-fix-threads`).

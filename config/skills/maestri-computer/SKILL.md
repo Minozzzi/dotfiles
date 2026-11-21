@@ -64,7 +64,7 @@ Pointer
 - `click @e3|x,y [--button right|middle] [--count 2|3] [--modifiers cmd,shift] [--hold ms]`. `double-click`, `right-click`: shortcuts. Pressing doesn't move keyboard focus, though selecting a list row focuses its list.
 - `move x,y`: hover
 - `drag @e3|x,y @e5|x,y [--to-app App] [--to-window "Title"] [--modifiers opt]`: sliders, shapes, clips, rows, files, text. On a web page only its own drag and drop works in the background; a page that tracks the mouse button needs control mode, for `draw` too. Inside one window it works even with the window covered; if the app makes it a drag-and-drop and something covers where it would drop, it's cancelled and nothing is dropped. `--to-app` drops into another app's window (its ref or x,y); both its ends must show.
-- `scroll [@e3|x,y] [down|up|left|right] [--amount pages] [--dx px] [--dy px]`
+- `scroll [@e3|x,y] [down|up|left|right] [--amount pages | [--dx px] [--dy px]]`: pages, or exact pixels. With a direction, the pixels are only how far and the direction is which way: `up --dy 600` scrolls up 600. Without one, the sign decides: positive `--dy` scrolls down, negative up; positive `--dx` right, negative left. Pages and pixels together, or a direction with the other axis's pixels (`up --dx 200`), are refused.
 - `pinch --scale 1.5 [--at x,y]`, `rotate --degrees 30 [--at x,y]`
 - `draw x1,y1 x2,y2 ... | --svg "M 10 10 C ..." [--pressure 0.2-1] [--tilt x,y]`: one pen stroke per call
 
