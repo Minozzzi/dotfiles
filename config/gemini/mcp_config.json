@@ -50,6 +50,12 @@
     },
     "envato": {
       "serverUrl": "https://mcp.envato.com/mcp"
+    },
+    "coolify": {
+      "serverUrl": "https://coolify.imowiz.com.br/mcp",
+      "headers": {
+        "Authorization": "Bearer ${COOLIFY_TOKEN}"
+      }
     }
   }
 }
