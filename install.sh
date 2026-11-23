@@ -186,6 +186,7 @@ if [[ ! -f "$HOME/.zshrc.work" ]]; then
 # export DD_API_KEY=""
 # export DD_APP_KEY=""
 # export BRAVE_API_KEY=""
+# export COOLIFY_TOKEN=""
 EOF
 fi
 
